@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Артём & Валерия — 15.08.2026</title>
+  
+  <!-- Шрифты: Cormorant Garamond и Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            scandi: {
+              bg: '#F8F7F4',
+              surface: '#FFFFFF',
+              dark: '#1C1C1A',
+              muted: '#71716D',
+              accent: '#6E7765',
+              border: '#E8E6E1',
+              sand: '#EFECE6'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F8F7F4;
+      color: #1C1C1A;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .paper-texture {
+      background-image: radial-gradient(#d3cebe 0.65px, transparent 0.65px);
+      background-size: 24px 24px;
+    }
+    .chip-checkbox:checked + label {
+      background-color: #1C1C1A;
+      color: #F8F7F4;
+      border-color: #1C1C1A;
+    }
+[class*="netlify"], #netlify-drawer, .netlify-badge, div[style*="z-index: 2147483647"], iframe[src*="netlify"] { 
+  display: none !important; 
+}
+
+  </style>
+</head>
+<body class="min-h-screen paper-texture flex flex-col items-center py-4 md:py-10 px-4 select-none">
+
+  <!-- ВЕРХНЯЯ НАВИГАЦИЯ ДЛЯ НОУТБУКОВ И КНОПКА ДЛЯ МОБИЛЬНЫХ -->
+  <nav class="fixed top-4 z-50 flex items-center justify-between w-full max-w-2xl px-4 pointer-events-none">
+    <div class="pointer-events-auto bg-[#F8F7F4]/90 backdrop-blur-md border border-scandi-border shadow-sm px-4 py-2 rounded-full hidden md:flex items-center gap-6 text-xs uppercase tracking-wider text-scandi-muted font-medium">
+      <span class="text-scandi-dark font-semibold">15.08.2026</span>
+      <a href="#program" class="hover:text-scandi-dark transition-colors">Программа</a>
+      <a href="#location" class="hover:text-scandi-dark transition-colors">Локация</a>
+      <a href="#dresscode" class="hover:text-scandi-dark transition-colors">Дресс-код</a>
+      <a href="#details" class="hover:text-scandi-dark transition-colors">Детали</a>
+    </div>
+
+    <div class="pointer-events-auto ml-auto">
+      <a href="#rsvp" class="bg-scandi-dark text-scandi-bg hover:bg-black transition-colors px-5 py-2.5 rounded-full text-xs font-medium uppercase tracking-widest shadow-md">
+        Ответить
+      </a>
+    </div>
+  </nav>
+
+  <!-- ЦЕНТРАЛЬНЫЙ ЖУРНАЛЬНЫЙ КОНТЕЙНЕР -->
+  <main class="w-full max-w-2xl bg-scandi-surface border border-scandi-border rounded-3xl shadow-xl overflow-hidden mt-12 md:mt-16 mb-16 p-6 sm:p-12 md:p-16">
+    
+    <!-- 1. ПЕРВЫЙ ЭКРАН -->
+    <header class="text-center pt-4 pb-12">
+      <span class="inline-block text-xs uppercase tracking-[0.3em] text-scandi-accent font-medium mb-4">
+        Свадебное торжество
+      </span>
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-scandi-dark mb-4">
+        Артём & Валерия
+      </h1>
+      <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-scandi-muted">
+        15 августа 2026 &bull; Зеленогорск
+      </p>
+    </header>
+
+    <!-- 2. ГЛАВНАЯ ОБЛОЖКА (Фото из сети, не ломается) -->
+    <div class="relative h-[480px] md:h-[600px] rounded-2xl overflow-hidden mb-16 bg-[#EDEAE3]">
+      <img 
+  src="cover.jpg" 
+  alt="Артём и Валерия" 
+  class="absolute inset-0 w-full h-full object-cover"
+/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+        <p class="font-serif italic text-xl md:text-2xl text-[#F8F7F4]/95 mb-2">«С любовью и благодарностью...»</p>
+        <p class="text-xs md:text-sm tracking-[0.2em] uppercase text-[#F8F7F4]/80">Приглашаем вас разделить этот день с нами</p>
+      </div>
+    </div>
+
+    <!-- 3. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА -->
+    <section class="py-8 border-y border-scandi-border text-center mb-16">
+      <p class="text-xs uppercase tracking-widest text-scandi-muted mb-6">До встречи осталось</p>
+      <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+        <div class="p-3 bg-scandi-bg rounded-xl border border-scandi-border">
+          <span id="days" class="block font-serif text-3xl sm:text-4xl text-scandi-dark">00</span>
+          <span class="text-[10px] uppercase tracking-wider text-scandi-muted">дней</span>
+        </div>
+        <div class="p-3 bg-scandi-bg rounded-xl border border-scandi-border">
+          <span id="hours" class="block font-serif text-3xl sm:text-4xl text-scandi-dark">00</span>
+          <span class="text-[10px] uppercase tracking-wider text-scandi-muted">часов</span>
+        </div>
+        <div class="p-3 bg-scandi-bg rounded-xl border border-scandi-border">
+          <span id="minutes" class="block font-serif text-3xl sm:text-4xl text-scandi-dark">00</span>
+          <span class="text-[10px] uppercase tracking-wider text-scandi-muted">минут</span>
+        </div>
+        <div class="p-3 bg-scandi-bg rounded-xl border border-scandi-border">
+          <span id="seconds" class="block font-serif text-3xl sm:text-4xl text-scandi-dark">00</span>
+          <span class="text-[10px] uppercase tracking-wider text-scandi-muted">секунд</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ПРОГРАММА ДНЯ -->
+    <section id="program" class="py-8 mb-16">
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-widest text-scandi-accent font-semibold">Таймлайн</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-scandi-dark mt-1">Программа дня</h2>
+      </div>
+
+      <div class="space-y-8 relative before:absolute before:inset-0 before:left-8 sm:before:left-1/2 before:w-[1px] before:bg-scandi-border before:-translate-x-1/2">
+        
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pl-16 sm:pl-0">
+          <div class="sm:w-5/12 sm:text-right">
+            <span class="font-serif text-2xl text-scandi-dark">15:30</span>
+            <p class="text-xs uppercase tracking-wider text-scandi-muted">Сбор гостей & Welcome</p>
+          </div>
+          <div class="absolute left-6 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-scandi-surface border-4 border-scandi-accent z-10"></div>
+          <div class="sm:w-5/12">
+            <p class="text-sm text-scandi-muted">Легкие напитки, живая музыка и объятия перед началом церемонии.</p>
+          </div>
+        </div>
+
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pl-16 sm:pl-0">
+          <div class="sm:w-5/12 sm:text-right">
+            <span class="font-serif text-2xl text-scandi-dark">16:30</span>
+            <p class="text-xs uppercase tracking-wider text-scandi-muted">Церемония</p>
+          </div>
+          <div class="absolute left-6 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-scandi-surface border-4 border-scandi-dark z-10"></div>
+          <div class="sm:w-5/12">
+            <p class="text-sm text-scandi-muted">Трогательный момент обмена клятвами в окружении сосен.</p>
+          </div>
+        </div>
+
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pl-16 sm:pl-0">
+          <div class="sm:w-5/12 sm:text-right">
+            <span class="font-serif text-2xl text-scandi-dark">18:00</span>
+            <p class="text-xs uppercase tracking-wider text-scandi-muted">Праздничный ужин</p>
+          </div>
+          <div class="absolute left-6 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-scandi-surface border-4 border-scandi-accent z-10"></div>
+          <div class="sm:w-5/12">
+            <p class="text-sm text-scandi-muted">Гастрономический вечер, тосты, непринужденное общение и смех.</p>
+          </div>
+        </div>
+
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pl-16 sm:pl-0">
+          <div class="sm:w-5/12 sm:text-right">
+            <span class="font-serif text-2xl text-scandi-dark">23:00</span>
+            <p class="text-xs uppercase tracking-wider text-scandi-muted">Завершение вечера</p>
+          </div>
+          <div class="absolute left-6 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-scandi-surface border-4 border-scandi-dark z-10"></div>
+          <div class="sm:w-5/12">
+            <p class="text-sm text-scandi-muted">Бенгальские огни и трансфер гостей в город.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. ЛОКАЦИЯ -->
+    <section id="location" class="py-8 mb-16 border-t border-scandi-border pt-12">
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-widest text-scandi-accent font-semibold">Место проведения</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-scandi-dark mt-1">Villa Scandi</h2>
+        <p class="text-sm text-scandi-muted mt-2">Ленинградская область, г. Зеленогорск, Лесная ул., 14</p>
+      </div>
+
+      <div class="bg-scandi-bg p-6 rounded-2xl border border-scandi-border text-center">
+        <p class="text-xs text-scandi-muted mb-4 leading-relaxed">
+          Уединенная загородная площадка на берегу залива среди вековых сосен. На территории предусмотрена удобная парковка для личных автомобилей.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button onclick="copyAddress()" class="px-5 py-2.5 rounded-full border border-scandi-dark text-xs uppercase tracking-wider hover:bg-scandi-dark hover:text-white transition-all">
+            Скопировать адрес
+          </button>
+          <a href="https://maps.yandex.ru" target="_blank" class="px-5 py-2.5 rounded-full bg-scandi-dark text-white text-xs uppercase tracking-wider hover:bg-black transition-all">
+            Открыть навигатор
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ДРЕСС-КОД -->
+    <section id="dresscode" class="py-8 mb-16 border-t border-scandi-border pt-12">
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-widest text-scandi-accent font-semibold">Пожелания по стилю</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-scandi-dark mt-1">Дресс-код</h2>
+        <p class="text-sm text-scandi-muted mt-2 max-w-md mx-auto">
+          Будем признательны, если вы поддержите спокойную природную палитру нашего праздника в скандинавском духе.
+        </p>
+      </div>
+
+      <!-- Палитра кружков -->
+      <div class="flex items-center justify-center gap-4 sm:gap-6 mb-6">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-full shadow-inner border border-black/10" style="background-color: #F4F1EA;"></div>
+          <span class="text-[11px] text-scandi-muted">Лён</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-full shadow-inner border border-black/10" style="background-color: #D6CEBE;"></div>
+          <span class="text-[11px] text-scandi-muted">Песочный</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-full shadow-inner border border-black/10" style="background-color: #8C9583;"></div>
+          <span class="text-[11px] text-scandi-muted">Шалфей</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-full shadow-inner border border-black/10" style="background-color: #5C6354;"></div>
+          <span class="text-[11px] text-scandi-muted">Олива</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-full shadow-inner border border-black/10" style="background-color: #2B2B28;"></div>
+          <span class="text-[11px] text-scandi-muted">Графит</span>
+        </div>
+      </div>
+      <p class="text-xs text-center text-scandi-muted italic">
+        Комфортная обувь приветствуется: церемония будет проходить на открытой террасе и газоне.
+      </p>
+    </section>
+
+    <!-- 7. ДЕТАЛИ И ПОЖЕЛАНИЯ -->
+    <section id="details" class="py-8 mb-16 border-t border-scandi-border pt-12">
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-widest text-scandi-accent font-semibold">Важные моменты</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-scandi-dark mt-1">Детали</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-scandi-bg rounded-2xl border border-scandi-border">
+          <h3 class="font-serif text-xl text-scandi-dark mb-2">🌸 Цветы</h3>
+          <p class="text-xs text-scandi-muted leading-relaxed">
+            Пожалуйста, воздержитесь от покупки пышных срезанных цветов. Мы сразу после свадьбы отправляемся в поездку и не успеем насладиться их красотой. Если вы хотите сделать комплимент — бутылочка хорошего сухого вина или книга будут прекрасным знаком внимания.
+          </p>
+        </div>
+
+        <div class="p-6 bg-scandi-bg rounded-2xl border border-scandi-border">
+          <h3 class="font-serif text-xl text-scandi-dark mb-2">🎁 Подарки</h3>
+          <p class="text-xs text-scandi-muted leading-relaxed">
+            Ваше присутствие и тёплые улыбки — главный подарок. Если вы хотите порадовать нас материально, мы будем очень благодарны вкладу в наш будущий семейный очаг в конверте.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. RSVP-АНКЕТА С ОТПРАВКОЙ В GOOGLE ТАБЛИЦУ -->
+    <section id="rsvp" class="py-8 border-t border-scandi-border pt-12">
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-widest text-scandi-accent font-semibold">Подтверждение</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-scandi-dark mt-1">Анкета гостя</h2>
+        <p class="text-xs text-scandi-muted mt-2">Пожалуйста, подтвердите ваше присутствие до 15 июля 2026 года</p>
+      </div>
+
+      <form id="rsvpForm" onsubmit="submitForm(event)" class="space-y-6">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-scandi-dark font-medium mb-2">Ваше имя и фамилия *</label>
+          <input type="text" id="guestName" required placeholder="Константин Константинопольский" class="w-full px-4 py-3 rounded-xl border border-scandi-border bg-scandi-bg text-sm focus:outline-none focus:border-scandi-dark transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-scandi-dark font-medium mb-2">Сможете ли разделить с нами праздник? *</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="cursor-pointer">
+              <input type="radio" name="attendance" value="Буду с удовольствием" checked class="peer sr-only">
+              <div class="py-3 px-4 rounded-xl border border-scandi-border bg-scandi-bg text-center text-xs uppercase tracking-wider peer-checked:bg-scandi-dark peer-checked:text-white peer-checked:border-scandi-dark transition-all">
+                С радостью приду
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="attendance" value="К сожалению, не смогу" class="peer sr-only">
+              <div class="py-3 px-4 rounded-xl border border-scandi-border bg-scandi-bg text-center text-xs uppercase tracking-wider peer-checked:bg-scandi-dark peer-checked:text-white peer-checked:border-scandi-dark transition-all">
+                К сожалению, нет
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-scandi-dark font-medium mb-2">Будете ли вы со спутником / семьей?</label>
+          <input type="text" id="plusOne" placeholder="Имя вашего спутника (+1) или «Буду один»" class="w-full px-4 py-3 rounded-xl border border-scandi-border bg-scandi-bg text-sm focus:outline-none focus:border-scandi-dark transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-scandi-dark font-medium mb-2">Предпочтения по напиткам</label>
+          <div class="flex flex-wrap gap-2">
+            <div>
+              <input type="checkbox" id="drink-white" value="Белое вино" class="sr-only chip-checkbox">
+              <label for="drink-white" class="block px-4 py-2 rounded-full border border-scandi-border text-xs text-scandi-dark cursor-pointer transition-colors">Белое вино</label>
+            </div>
+            <div>
+              <input type="checkbox" id="drink-red" value="Красное вино" class="sr-only chip-checkbox">
+              <label for="drink-red" class="block px-4 py-2 rounded-full border border-scandi-border text-xs text-scandi-dark cursor-pointer transition-colors">Красное вино</label>
+            </div>
+            <div>
+              <input type="checkbox" id="drink-sparkling" value="Игристое" class="sr-only chip-checkbox">
+              <label for="drink-sparkling" class="block px-4 py-2 rounded-full border border-scandi-border text-xs text-scandi-dark cursor-pointer transition-colors">Игристое</label>
+            </div>
+            <div>
+              <input type="checkbox" id="drink-whiskey" value="Крепкие напитки" class="sr-only chip-checkbox">
+              <label for="drink-whiskey" class="block px-4 py-2 rounded-full border border-scandi-border text-xs text-scandi-dark cursor-pointer transition-colors">Крепкое</label>
+            </div>
+            <div>
+              <input type="checkbox" id="drink-none" value="Безалкогольное" class="sr-only chip-checkbox">
+              <label for="drink-none" class="block px-4 py-2 rounded-full border border-scandi-border text-xs text-scandi-dark cursor-pointer transition-colors">Безалкогольное</label>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-scandi-dark font-medium mb-2">Нужен ли вам трансфер из Санкт-Петербурга?</label>
+          <select id="transfer" class="w-full px-4 py-3 rounded-xl border border-scandi-border bg-scandi-bg text-sm focus:outline-none focus:border-scandi-dark transition-colors">
+            <option value="Да, нужен туда и обратно">Да, нужен трансфер туда и обратно</option>
+            <option value="Только обратно">Только обратно ночью</option>
+            <option value="Доберусь самостоятельно">Доберусь самостоятельно на авто / такси</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-scandi-dark font-medium mb-2">Особые пожелания или аллергии по меню</label>
+          <textarea id="message" rows="2" placeholder="Например: аллергия на морепродукты, вегетарианское меню..." class="w-full px-4 py-3 rounded-xl border border-scandi-border bg-scandi-bg text-sm focus:outline-none focus:border-scandi-dark transition-colors"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-scandi-dark text-scandi-bg hover:bg-black font-medium text-xs uppercase tracking-[0.2em] transition-all shadow-lg flex items-center justify-center gap-2">
+          <span>Подтвердить участие</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer class="pt-16 pb-4 text-center border-t border-scandi-border mt-16 text-scandi-muted">
+      <p class="font-serif italic text-2xl text-scandi-dark mb-2">Ждём вас с нетерпением!</p>
+      <p class="text-xs uppercase tracking-widest text-scandi-accent mb-6">Артём & Валерия</p>
+      <p class="text-[11px] text-scandi-muted">По всем вопросам координатор: +7 (999) 000-00-00 (Екатерина)</p>
+    </footer>
+
+  </main>
+
+  <!-- ВСПЛЫВАЮЩИЙ ТОСТ О КОПИРОВАНИИ АДРЕСА -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-scandi-dark text-white px-5 py-2.5 rounded-full text-xs tracking-wider shadow-lg opacity-0 transition-opacity pointer-events-none z-50">
+    Адрес скопирован в буфер обмена
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО УСПЕХА -->
+  <div id="successModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-scandi-surface border border-scandi-border rounded-2xl max-w-sm w-full p-8 text-center shadow-2xl">
+      <span class="text-4xl mb-4 block">🤍</span>
+      <h3 class="font-serif text-3xl text-scandi-dark mb-2">Спасибо!</h3>
+      <p class="text-xs text-scandi-muted leading-relaxed mb-6">
+        Ваш ответ успешно сохранён. Будем счастливы видеть вас рядом в наш особенный день!
+      </p>
+      <button onclick="closeModal()" class="w-full py-3 rounded-xl bg-scandi-dark text-white text-xs uppercase tracking-widest hover:bg-black transition-colors">
+        Закрыть
+      </button>
+    </div>
+  </div>
+
+  <!-- СКРИПТЫ САЙТА -->
+  <script>
+    // 1. ВСТАВЬТЕ СЮДА ВАШУ ССЫЛКУ GOOGLE APPS SCRIPT (если ещё не создали, форма работает в демо-режиме):
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMv62nG5mKZKYjPoxIH4v9J0kcyclqyCEgURw5zNrEvIYP1LJCeQBptGs7PbSbei8H0w/exec';
+
+    // 2. ДАТА СВАДЬБЫ ДЛЯ ТАЙМЕРА (ГГГГ-ММ-ДДTHH:ММ:CC)
+    const weddingDate = new Date('2026-08-15T15:30:00').getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const difference = weddingDate - now;
+
+      if (difference > 0) {
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(d).padStart(2, '0');
+        document.getElementById('hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+      }
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // 3. КОПИРОВАНИЕ АДРЕСА
+    function copyAddress() {
+      navigator.clipboard.writeText('г. Зеленогорск, Лесная ул., 14, Villa Scandi');
+      const toast = document.getElementById('toast');
+      toast.classList.remove('opacity-0');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+      }, 2500);
+    }
+
+    // 4. ОТПРАВКА RSVP-АНКЕТЫ В GOOGLE ТАБЛИЦУ
+    async function submitForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>Отправка...</span>';
+      btn.disabled = true;
+
+      const drinks = Array.from(document.querySelectorAll('.chip-checkbox:checked')).map(cb => cb.value).join(', ') || 'Не выбрано';
+      const payload = {
+        timestamp: new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" }),
+        name: document.getElementById('guestName').value,
+        attendance: document.querySelector('input[name="attendance"]:checked').value,
+        companion: document.getElementById('plusOne').value || 'Без спутника',
+        drinks: drinks,
+        transfer: document.getElementById('transfer').value,
+        wishes: document.getElementById('message').value || '-'
+      };
+
+      try {
+        if (GOOGLE_SCRIPT_URL) {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+        document.getElementById('successModal').classList.remove('hidden');
+        document.getElementById('rsvpForm').reset();
+      } catch (err) {
+        alert('Произошла ошибка при отправке. Пожалуйста, свяжитесь с нами напрямую.');
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('successModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
